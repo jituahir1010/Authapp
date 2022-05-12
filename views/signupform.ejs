@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+
+<div class="formdiv">
+    <h1 class="form-title" >Sign up</h1>
+<form action="/authapi/v1/signup" method="post"  class="form" >
+    <section>
+        <label class="label-txt" for="name"> Name</label>
+        <input id="name" name="name" type="name" autocomplete="name" required autofocus  class="ip1 ip">
+    </section>
+    <br>
+    <section>
+        <label class="label-txt" for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required autofocus  class="ip2 ip"> 
+    </section>
+    <br>
+    <section>
+        <label class="label-txt" for="password">Password</label>
+        <input id="current-password" name="password" type="password" autocomplete="current-password" required  class="ip3 ip">
+        <!-- <span class="passforgot"> <a href="/login">forgot Password?</a></span> -->
+    </section>
+    <button class="btn" type="submit">Sign up</button>
+    <span class="loginspan"> Already Member .? <a href="/login"> login</a></span>
+
+</form>
+</div>
+</body>
+</html>

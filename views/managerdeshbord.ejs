@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" href="/css/diffcss.css">
+
+    <title>Manager | <%= title %></title>
+
+</head>
+<body>
+   <section class="nav">
+    <div class="dropdown ">
+        <h4 class="dropbtn">Role</h4>
+        <div class="dropdown-content">
+          <a href="/authapi/v1/deshbord">User</a>
+          <a href="/authapi/v1/admindeshbord">Admin</a>
+
+        </div>
+      </div>
+       <div class="navcontent">
+           <ul class="nav-items">
+               <li class="nav-item"><a class="nav-link" href=""><h4>Home</h4></a>
+               </li>
+               <li class="nav-item"><a class="nav-link" href="/"><h4>Role</h4></a>
+               </li>
+               <li class="nav-item Signuplink "> profile
+                   <div class="logoutdrop ">
+                    <a  class="" href="/authapi/v1/Logout">Logout</a>
+                    <a href="/authapi/v1/alladmin">Admin</a>
+                   </div>
+               </li>
+           </ul>
+       </div>  
+        
+    </section>
+    <section class="bodysection">
+        <div class="maincontent">
+            <button class="btn" onclick="location.href='/authapi/v1/alladmin'" type="button">Admins</button>
+        </div>
+        <div class="adminapp">
+            <% if(users.length === 0) {%>
+                <h2>No user with Admin privilege</h2>
+                <%};%>
+                <% { %>
+                    <% users.forEach(data => { %>
+                        <div class="userboxes">
+                            <div class="maininfo">
+                                <h2>Name:<%=  data.name%></h2>
+                                <h2> Email:<%=  data.email%></h2>
+                            </div>
+                            
+                            <div class="rolediv">
+                            <h4><%=  data.role%></h4>
+                            <button class="btn btn1" style="margin-top: 10px;"  
+                            onclick="location.href='/authapi/v1/findone/<%= data._id%>'"  
+                            type="button">update</button>
+                            <button class="btn btn2"   
+                            onclick="location.href='/authapi/v1/findone/<%= data._id%>'"  
+                            type="button">Delete</button>
+                            
+                            </div>
+
+                        </div>
+                       
+                    <% })%>
+                <%}%>
+        </div>
+        
+    </section>
+</body>
+</html>

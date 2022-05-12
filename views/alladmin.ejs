@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" href="/css/diffcss.css">
+
+    <title>All admin</title>
+
+
+   
+</head>
+<body>
+     <%- include('./partials/alladminnav.ejs') %>
+</section>
+    <section class="bodysection">
+        <div class="maincontent">
+            
+        </div>
+
+        <div class="adminapp">
+            <% if(admins.length === 0) {%>
+                <h2>No user with Admin privilege</h2>
+                <%};%>
+                <% { %>
+                    <% admins.forEach(data => { %>
+                        <div class="userboxes">
+                            <div class="maininfo">
+                                <h2><%=  data.name%></h2>
+                                <h2><%=  data.email%></h2>
+
+
+                            </div>
+                            
+                            <div class="rolediv">
+                            <h4><%=  data.role%></h4>
+                            <button class="btn btn1" style="margin-top: 10px;"  
+                            onclick="location.href='/authapi/v1/findone/<%= data._id%>'"  
+                            type="button">update</button>
+                            <button class="btn btn2"   
+                            onclick="location.href='/authapi/v1/findone/<%= data._id%>'"  
+                            type="button">Delete</button>
+
+                            </div>
+
+                        </div>
+                       
+                    <% })%>
+                <%}%>
+        </div>
+        
+
+
+       
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
