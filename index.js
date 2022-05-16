@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const userauth = require("./routes/route")
 const cookieParser = require('cookie-parser')
 
-const port = process.env.Port || 3000
+const port = process.env.Port || 5000
 
 // Importing mongoDB connection
 const connectDB = require("./config/index")

@@ -28,7 +28,7 @@ router.get("/deshbord", isLoggined,deshbord)
 router.get("/admindeshbord", isLoggined, isAdmin,usersonly)
 router.get("/managerdeshbord", isLoggined, isManager ,findall)
 router.get("/alladmin", isLoggined, isManager ,findallAdmins)
-router.put('/manager/update/:Id',updateUserBymanager)
+router.post('/manager/update/:Id',updateUserBymanager)
 
 router.delete("/delete", isLoggined,deleteuser)
 
